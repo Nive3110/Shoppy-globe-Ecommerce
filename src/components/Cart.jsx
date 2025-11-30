@@ -1,4 +1,3 @@
-// src/components/Cart.jsx
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { clearCart } from "../redux/cartSlice";
@@ -10,7 +9,6 @@ function Cart() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // Calculate total price
   const totalPrice = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
     0
