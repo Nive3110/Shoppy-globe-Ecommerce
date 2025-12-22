@@ -19,7 +19,7 @@ function Header() {
       <nav className="space-x-6 hidden md:flex items-center">
         <Link to="/" className="hover:text-amber-400">Home</Link>
         <Link to="/products" className="hover:text-amber-400">Products</Link>
-        <Link to="/checkout" className="hover:text-amber-400">Checkout</Link>
+       
 
         {/* cart icon */}
         <Link to="/cart" className="relative">

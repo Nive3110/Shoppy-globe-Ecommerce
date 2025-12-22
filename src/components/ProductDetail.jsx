@@ -5,58 +5,72 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/cartSlice";
 
 export default function ProductDetail() {
-  // get product id from route params
   const { id } = useParams();
-
-  // fetch single product details using custom hook
   const { product, loading, error } = useFetchProduct(id);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // show loading state
-  if (loading) return <p className="p-6">Loading...</p>;
+  if (loading) {
+    return <p className="p-6 text-center">Loading...</p>;
+  }
 
-  // show error message if fetch fails
-  if (error) return <p className="p-6 text-red-500">{error}</p>;
+  if (error) {
+    return <p className="p-6 text-center text-red-500">{error}</p>;
+  }
 
-  // add product to cart and redirect to cart page
   const handleAdd = () => {
     dispatch(addToCart(product));
     navigate("/cart");
   };
 
   return (
-    <div className="p-6 flex gap-10">
+    <div className="max-w-7xl mx-auto p-4 my-4 sm:p-6">
       
-      {/* product image */}
-      <img
-        src={product.thumbnail}
-        alt={product.title}
-        loading="lazy"   // lazy load image for better performance
-        className="w-80 rounded-lg shadow"
-      />
+      {/* responsive grid layout */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        
+        {/* product image */}
+        <div className="flex justify-center ">
+          <img
+            src={product.thumbnail}
+            alt={product.title}
+            loading="lazy"
+            className="w-full max-w-sm rounded-lg shadow-md"
+          />
+        </div>
 
-      {/* product details */}
-      <div>
-        <h1 className="text-3xl font-bold mb-3">
-          {product.title}
-        </h1>
+        {/* product info */}
+        <div className="flex flex-col">
+          <h1 className="text-2xl sm:text-3xl font-bold mb-3">
+            {product.title}
+          </h1>
 
-        <p className="text-gray-700 mb-4">
-          {product.description}
-        </p>
+          <p className="text-gray-600 text-sm sm:text-base mb-4">
+            {product.description}
+          </p>
 
-        <p className="text-2xl font-semibold text-green-600 mb-4">
-          ₹{product.price}
-        </p>
+          <p className="text-2xl font-semibold text-green-600 mb-6">
+            ₹{product.price}
+          </p>
 
-        <button
-          onClick={handleAdd}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-        >
-          Add to Cart
-        </button>
+          {/* action buttons */}
+          <div className="flex flex-col sm:flex-row gap-4">
+            <button
+              onClick={handleAdd}
+              className="w-full sm:w-auto px-6 py-3 bg-amber-500 text-white rounded hover:bg-amber-400"
+            >
+              Add to Cart
+            </button>
+
+            <button
+              onClick={() => navigate("/products")}
+              className="w-full sm:w-auto px-6 py-3 border border-gray-300 rounded hover:bg-gray-100"
+            >
+              Back to Products
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
