@@ -25,6 +25,7 @@ export default function ProductDetail() {
 
       <img
         src={product.thumbnail}
+        loading="lazy"
         alt={product.title}
         className="w-80 rounded-lg shadow"
       />

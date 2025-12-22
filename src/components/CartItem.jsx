@@ -20,6 +20,7 @@ function CartItem({ item }) {
         <img
           src={item.thumbnail}
           alt={item.title}
+          loading="lazy"
           className="w-20 h-20 object-cover rounded"
         />
         <div>

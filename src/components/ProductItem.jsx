@@ -8,7 +8,7 @@ function ProductItem({ product, onAddToCart }) {
   return (
     <div className="border rounded-md p-4 hover:shadow-lg">
       <img
-        src={product.thumbnail}
+        src={product.thumbnail} loading="lazy"
         alt={product.title}
         className="w-full h-48 object-cover mb-4"
       />
