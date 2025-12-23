@@ -94,4 +94,5 @@ The application allows users to browse products, view product details, add items
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/manjumadalabhanvi/Ecommerce-Shoppyglobe.git
+   git clone https://github.com/Nive3110/Shoppy-globe-Ecommerce.git
+
