@@ -96,3 +96,6 @@ The application allows users to browse products, view product details, add items
    ```bash
    git clone https://github.com/Nive3110/Shoppy-globe-Ecommerce.git
 
+2.cd Shoppyglobe
+3.npm i
+4.npm run dev
